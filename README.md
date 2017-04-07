@@ -1,24 +1,48 @@
-# README
+# Saber and savor!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Hello lovers of life!
 
-Things you may want to cover:
+I am a work in progress and currently in my infancy. When I grow up, I want to
+be a community site for lovers of champagne, and especially for lovers of
+sabering the necks of champagne bottles. Stay tuned for more real soon!
 
-* Ruby version
 
-* System dependencies
+This is a modified version of the sample application for
+[*Ruby on Rails Tutorial:
+Learn Web Development with Rails*](http://www.railstutorial.org/)
+by [Michael Hartl](http://www.michaelhartl.com/).
 
-* Configuration
+## License
 
-* Database creation
+All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/)
+is available jointly under the MIT License and the Beerware License. See
+[LICENSE.md](LICENSE.md) for details.
 
-* Database initialization
+## Getting started
 
-* How to run the test suite
+To get started with the app, clone the repo and then install the needed gems:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bundle install --without production
+```
 
-* Deployment instructions
+Next, migrate the database:
 
-* ...
+```
+$ rails db:migrate
+```
+
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rails test
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
+
+For more information, see the
+[*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
