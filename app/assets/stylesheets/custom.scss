@@ -67,3 +67,17 @@ p {
   color: #eee;
   text-decoration: underline overline;
 }
+
+/* homepage */
+#home-jumbo {
+  background-image: url("sabrage-1799.jpg");
+  background-size: cover;
+  h1 {
+    color: gold;
+    text-shadow:
+      -2px  4px #000;
+  }
+  h2 {
+    color: white;
+  }
+}
