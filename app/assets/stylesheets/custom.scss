@@ -17,10 +17,9 @@ textarea {
 
 .center {
   text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typography */
@@ -42,7 +41,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $gray-light;
 }
 
 p {
@@ -61,11 +60,10 @@ p {
   padding-top: 9px;
   font-weight: bold;
   font-style: oblique;
-}
-
-#logo:hover {
-  color: #eee;
-  text-decoration: underline overline;
+  &:hover {
+    color: #eee;
+    text-decoration: underline overline;
+  }
 }
 
 /* footer */
@@ -74,7 +72,7 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: $gray-light;
   a {
     color: #555;
     &:hover {
