@@ -1,6 +1,13 @@
+
+<% provide(:title, @user.name) %>
+
 <pre>
              name: <%= @user.name %>,
             email: <%= @user.email %>,
        created at: <%= @user.created_at %>
   last updated on: <%= @user.updated_at %>
 </pre>
+
+<div class="avatar">
+  <%= gravatar_for @user %>
+</div>
