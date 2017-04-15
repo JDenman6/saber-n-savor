@@ -3,7 +3,9 @@
 one:
   name: Smooshface
   email: smushy@example.co.ru
+  password_digest: <%= User.digest('qwerqwer') %>
 
 two:
   name: Lucy Caboosy
   email: Lulu@example.ca.gov
+  password_digest: <%= User.digest('asdfasdf') %>
