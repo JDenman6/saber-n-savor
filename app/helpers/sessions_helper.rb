@@ -17,7 +17,6 @@ module SessionsHelper
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
     elsif cookies.signed[:user_id]
-      raise #something
       user = User.find_by(id: cookies.signed[:user_id])
       if user && user.authentic?(cookies[:remember_token])
         log_in user
