@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :log_in_user, only: [:edit, :update]
   def show
     @user = User.find(params[:id])
   end
@@ -36,9 +36,20 @@ class UsersController < ApplicationController
 
   private
 
+    # Strong parameters
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+    end
+
+    ### BEFORE FILTERS
+
+    # Make sure users are logged in.
+    def log_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 
 end
