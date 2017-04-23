@@ -14,6 +14,7 @@ gem 'pg', '0.18.4'
 
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'faker',   '1.6.6'
 end
 
 group :development do
