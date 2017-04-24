@@ -1,3 +1,8 @@
-User#account_activation
+Bonjour <%= @user.name %>!
 
-<%= @greeting %>, find me in app/views/user_mailer/account_activation.text.erb
+Welcome to the Savery Sabor!
+Click on the link below
+(or copy and paste into your browser's address bar)
+to activate your account:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
