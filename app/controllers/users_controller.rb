@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :log_in_user,    only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_only,     only: [:destroy]
 
   def show
     @user = User.find(params[:id])
@@ -67,5 +68,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user? @user
+    end
+
+    # Make sure only admins can make protected actions.
+    def admin_only
+      redirect_to(root_url) unless current_user.admin?
     end
 end
