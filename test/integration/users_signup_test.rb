@@ -27,8 +27,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                         password: "validPassword",
                                         password_confirmation: "validPassword" } }
     end
-    follow_redirect!
-    assert_template 'users/show'
-    assert is_logged_in?
+    ## Temporary test
+    assert_redirected_to root_path
+
+    ## Old test
+    # follow_redirect!
+    # assert_template 'users/show'
+    # assert is_logged_in?
   end
 end
