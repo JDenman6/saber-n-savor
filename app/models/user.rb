@@ -31,6 +31,7 @@ class User < ApplicationRecord
   end
 
   # Checks the authenticity of a given remember_token. returns boolean.
+  # If given only token, assumes :remember. You can also check for :activation
   def authentic?(token, attribute = :remember)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
