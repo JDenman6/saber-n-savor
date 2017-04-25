@@ -31,8 +31,10 @@ class User < ApplicationRecord
   end
 
   # Checks the authenticity of a given remember_token. returns boolean.
-  def authentic?(remember_token)
-    remember_digest && BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authentic?(token, attribute = :remember)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Delete the user's current session token.
