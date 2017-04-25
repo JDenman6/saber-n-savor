@@ -7,6 +7,9 @@ be a community site for lovers of champagne, and especially for lovers of
 sabering the necks of champagne bottles. Stay tuned for more real soon!
 
 
+### Notes to self
+Remember to write integration tests for not showing inactive users in the users#index and #show views. Just in case.
+
 This is a modified version of the sample application for
 [*Ruby on Rails Tutorial:
 Learn Web Development with Rails*](http://www.railstutorial.org/)
