@@ -64,6 +64,11 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  # Check if the password_reset on the current user is expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
 private
 
     # Creates an activation digest for the current user.
@@ -76,4 +81,5 @@ private
     def downcase_email
       email.downcase!
     end
+
 end
