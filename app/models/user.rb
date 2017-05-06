@@ -70,6 +70,12 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # Returns all microposts in the user's feed
+  # (for now just the user's own posts)
+  def feed
+    Micropost.where("user_id = ?", self.id)
+  end
+
 private
 
     # Creates an activation digest for the current user.
