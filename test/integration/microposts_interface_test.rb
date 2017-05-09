@@ -11,22 +11,24 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div.pagination'
     assert_select 'input[type="file"]'
     # Invalid submission
-    post microposts_path, micropost: { content: "" }
+    post microposts_path, params: { micropost: { content: "" } }
     assert_select 'div#error_explanation'
     # Valid submission
     content = "Hoopah!"
-    picture = fixture_file_upload('test/fixtures/sabrage-1799.jpg', 'image/png')
+    picture = fixture_file_upload('files/sabrage-1799.jpg', 'image/png')
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, micropost: { content: content, picture: picture }
+      post microposts_path, params: {
+        micropost: { content: content, picture: picture }
+      }
     end
-    assert @micropost.picture?
+    assert Micropost.first.picture?
     follow_redirect!
     assert_match content, response.body
     # Delete a post.
-    assert select 'a', 'delete'
+    assert_select 'a', 'delete'
     first_micropost = @user.microposts.paginate(page: 1).first
     assert_difference 'Micropost.count', -1 do
-      delete microposts_path(first_micropost)
+      delete micropost_path(first_micropost)
     end
     # Visit another user.
     get user_path(users(:archer))
