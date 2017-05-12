@@ -23,5 +23,5 @@
 # Ignore Spring files.
 /spring/*.pid
 
-# Ignore stuff uploaded with microposts in development
-/public/uploads/micropost**
+# Ignore stuff uploaded in development
+/public/uploads
