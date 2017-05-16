@@ -90,6 +90,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not (smushy.following?(lucy) || lucy.following?(smushy) )
     smushy.follow(lucy)
     assert     (smushy.following?(lucy) && !lucy.following?(smushy) )
+    assert     lucy.followers.include?(smushy)
+    assert_not smushy.followers.include?(lucy) 
     smushy.unfollow(lucy)
     assert_not (smushy.following?(lucy) || lucy.following?(smushy) )
   end
