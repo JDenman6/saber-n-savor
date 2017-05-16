@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
-  has_many :following, through: :active_relationships, source: :followed 
+  has_many :following, through: :active_relationships, source: :followed
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -78,6 +78,21 @@ class User < ApplicationRecord
   # (for now just the user's own posts)
   def feed
     Micropost.where("user_id = ?", self.id)
+  end
+
+  # checks if the given user is in the user's following
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  # starts following a user
+  def follow(other_user)
+    following << other_user
+  end
+
+  # stops following a user
+  def unfollow(other_user)
+    following.delete(other_user)
   end
 
 private
