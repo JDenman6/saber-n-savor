@@ -87,13 +87,10 @@ class UserTest < ActiveSupport::TestCase
   test "folowing and unfollowing" do
     smushy = users(:one)
     lucy   = users(:two)
-    assert_not smushy.following?(lucy)
-    assert_not lucy.following?(smushy)
+    assert_not (smushy.following?(lucy) || lucy.following?(smushy) )
     smushy.follow(lucy)
-    assert     smushy.following?(lucy)
-    assert_not lucy.following?(smushy)
+    assert     (smushy.following?(lucy) && !lucy.following?(smushy) )
     smushy.unfollow(lucy)
-    assert_not smushy.following(lucy)
-    assert_not lucy.following?(smushy)
+    assert_not (smushy.following?(lucy) || lucy.following?(smushy) )
   end
 end
