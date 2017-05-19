@@ -77,4 +77,14 @@ end
     end
     assert_redirected_to root_url
   end
+
+  test "should redirect following when not logged in" do
+    get users_following_path @user
+    assert_redirected_to root_url
+  end
+
+  test "should redirect followers when not logged in" do
+    get users_followers_path @user
+    assert_redirected_to root_url
+  end
 end
