@@ -91,8 +91,26 @@ class UserTest < ActiveSupport::TestCase
     smushy.follow(lucy)
     assert     (smushy.following?(lucy) && !lucy.following?(smushy) )
     assert     lucy.followers.include?(smushy)
-    assert_not smushy.followers.include?(lucy) 
+    assert_not smushy.followers.include?(lucy)
     smushy.unfollow(lucy)
     assert_not (smushy.following?(lucy) || lucy.following?(smushy) )
+  end
+
+  test "feed should have the right posts" do
+    smush = users(:one)
+    archer  = users(:archer)
+    lana    = users(:lana)
+    # Posts from followed user
+    lana.microposts.each do |post_following|
+      assert smush.feed.include?(post_following)
+    end
+    # Posts from self
+    smush.microposts.each do |post_self|
+      assert smush.feed.include?(post_self)
+    end
+    # Posts from unfollowed user
+    archer.microposts.each do |post_unfollowed|
+      assert_not smush.feed.include?(post_unfollowed)
+    end
   end
 end
