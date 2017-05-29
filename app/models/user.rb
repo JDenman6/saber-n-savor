@@ -84,7 +84,10 @@ class User < ApplicationRecord
   # Returns all microposts in the user's feed
   # (for now just the user's own posts)
   def feed
-    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, self.id)
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id",
+                    user_id: self.id)
   end
 
   # checks if the given user is in the user's following
