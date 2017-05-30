@@ -3,7 +3,7 @@ All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/) is av
 ```
 The MIT License
 
-Copyright (c) 2016 Michael Hartl
+Copyright (c) 2016 Michael Hartl, James Denman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
