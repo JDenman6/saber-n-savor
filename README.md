@@ -7,6 +7,7 @@ be a community site for lovers of champagne, and especially for lovers of
 sabering the necks of champagne bottles. Stay tuned for more real soon!
 
 ## Current status - Prototype 0
+https://savory-saber-1799.herokuapp.com/
 To get the project from Prototype 0 to Prototype 1, I'd like to add the
 following features:
 - [ ] The ability to sort users by name, created date, last active date, etc.
